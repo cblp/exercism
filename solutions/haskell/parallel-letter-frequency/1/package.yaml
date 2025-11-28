@@ -1,0 +1,35 @@
+name: parallel-letter-frequency
+version: 0.1.0.4
+
+language: GHC2021
+dependencies:
+  - base
+  - text
+
+library:
+  exposed-modules: Frequency
+  source-dirs: src
+  ghc-options: -Wall
+  dependencies:
+    - containers
+    - parallel
+    # - unliftio
+
+benchmarks:
+  bench:
+    ghc-options: -threaded -with-rtsopts=-N -O2
+
+    main: Benchmark.hs
+    source-dirs: bench
+    dependencies:
+      - parallel-letter-frequency
+      - criterion
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - containers
+      - parallel-letter-frequency
+      - hspec
