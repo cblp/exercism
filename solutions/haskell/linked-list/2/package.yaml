@@ -1,0 +1,20 @@
+name: linked-list
+version: 0.1.0.3
+
+language: GHC2021
+dependencies:
+  - base
+
+library:
+  exposed-modules: Deque
+  source-dirs: src
+  ghc-options: -Wall
+  # dependencies:
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - linked-list
+      - hspec
