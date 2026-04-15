@@ -1,0 +1,23 @@
+name: sgf-parsing
+version: 1.2.0.5
+
+language: GHC2021
+dependencies:
+  - base
+  - containers
+
+library:
+  exposed-modules: Sgf
+  source-dirs: src
+  ghc-options: -Wall
+  dependencies:
+    - mtl
+    - text
+
+tests:
+  test:
+    main: Tests.hs
+    source-dirs: test
+    dependencies:
+      - sgf-parsing
+      - hspec
